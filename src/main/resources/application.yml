@@ -2,7 +2,7 @@ spring:
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:todo-list-app
-    username: cami
+    username: wkyoshimatsu
     password:
   jpa:
     show-sql: true
