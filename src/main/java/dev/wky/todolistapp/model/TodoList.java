@@ -1,4 +1,4 @@
-package dev.cami.todolistapp.model;
+package dev.wky.todolistapp.model;
 
 import jakarta.persistence.*;
 import lombok.*;

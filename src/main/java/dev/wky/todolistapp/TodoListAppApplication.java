@@ -1,4 +1,4 @@
-package dev.cami.todolistapp;
+package dev.wky.todolistapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
