@@ -27,12 +27,13 @@ public record TodoItemService(
         todoItemRepository.deleteById(todoItemId);
     }
 
-    public TodoItem updateTodoItem(TodoItem todoItem) {
-        TodoItem existingTodoItem = getTodoItem(todoItem.getId());
+    public TodoItem updateTodoItem(UUID todoItemId, TodoItem todoItem) {
+        TodoItem existingTodoItem = getTodoItem(todoItemId);
         existingTodoItem.setDescription(todoItem.getDescription());
         existingTodoItem.setCompleted(todoItem.isCompleted());
         return todoItemRepository.save(existingTodoItem);
     }
+
     public TodoItem markTodoItemAsCompleted(UUID todoItemId) {
         TodoItem existingTodoItem = getTodoItem(todoItemId);
         existingTodoItem.setCompleted(true);

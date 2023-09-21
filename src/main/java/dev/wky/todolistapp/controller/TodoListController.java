@@ -12,14 +12,14 @@ import java.util.UUID;
 public record TodoListController(
         TodoListService todoListService
 ) {
-    @GetMapping
-    public List<TodoList> getAllTodoLists() {
-        return todoListService.getAllTodoLists();
-    }
-
     @PostMapping
     public TodoList createTodoList(@RequestBody TodoList todoList) {
         return todoListService.createTodoList(todoList);
+    }
+
+    @GetMapping
+    public List<TodoList> getAllTodoLists() {
+        return todoListService.getAllTodoLists();
     }
 
     @GetMapping("/{id}")
