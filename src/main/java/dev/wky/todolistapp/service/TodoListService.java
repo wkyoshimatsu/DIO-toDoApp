@@ -2,10 +2,12 @@ package dev.wky.todolistapp.service;
 
 import dev.wky.todolistapp.model.TodoList;
 import dev.wky.todolistapp.repository.TodoListRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public record TodoListService(
         TodoListRepository todoListRepository
 ) {
