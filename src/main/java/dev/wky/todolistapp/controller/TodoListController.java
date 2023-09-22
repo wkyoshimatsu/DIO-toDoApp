@@ -23,16 +23,16 @@ public record TodoListController(
     }
 
     @GetMapping("/{id}")
-    public TodoList getTodoList(@PathVariable UUID id) {
+    public TodoList getTodoList(@PathVariable("id") UUID id) {
         return todoListService.getTodoList(id);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("{id}")
     public TodoList updateTodoList(@PathVariable("id") UUID id, @RequestBody TodoList todoList) {
         return todoListService.updateTodoList(id, todoList);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("{id}")
     public void deleteTodoList(@PathVariable("id") UUID id) {
         todoListService.deleteTodoList(id);
     }

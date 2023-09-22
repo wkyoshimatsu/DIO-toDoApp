@@ -17,7 +17,7 @@ import java.util.UUID;
 public class TodoItem {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+  private UUID itemId;
   private String description;
   private boolean completed;
   private UUID listId;

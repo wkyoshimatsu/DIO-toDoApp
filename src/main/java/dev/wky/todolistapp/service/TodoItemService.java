@@ -17,26 +17,26 @@ public record TodoItemService(
         return todoItemRepository.save(todoItem);
     }
 
-    public TodoItem getTodoItem(UUID todoItemId) {
-        return todoItemRepository.findById(todoItemId).orElseThrow(
-                () -> new IllegalStateException("TodoItem with id " + todoItemId + "does not exist")
+    public TodoItem getTodoItem(UUID itemId) {
+        return todoItemRepository.findById(itemId).orElseThrow(
+                () -> new IllegalStateException("TodoItem with id " + itemId + "does not exist")
         );
     }
 
-    public void deleteTodoItem(UUID todoItemId) {
-        todoItemRepository.deleteById(todoItemId);
-    }
-
-    public TodoItem updateTodoItem(UUID todoItemId, TodoItem todoItem) {
-        TodoItem existingTodoItem = getTodoItem(todoItemId);
+    public TodoItem updateTodoItem(UUID itemId, TodoItem todoItem) {
+        TodoItem existingTodoItem = getTodoItem(itemId);
         existingTodoItem.setDescription(todoItem.getDescription());
         existingTodoItem.setCompleted(todoItem.isCompleted());
         return todoItemRepository.save(existingTodoItem);
     }
 
-    public TodoItem markTodoItemAsCompleted(UUID todoItemId) {
-        TodoItem existingTodoItem = getTodoItem(todoItemId);
+    public TodoItem markTodoItemAsCompleted(UUID itemId) {
+        TodoItem existingTodoItem = getTodoItem(itemId);
         existingTodoItem.setCompleted(true);
         return todoItemRepository.save(existingTodoItem);
+    }
+
+    public void deleteTodoItem(UUID itemId) {
+        todoItemRepository.deleteById(itemId);
     }
 }

@@ -15,9 +15,9 @@ public record TodoListService(
         return todoListRepository.save(todoList);
     }
 
-    public TodoList getTodoList(UUID id) {
-        return todoListRepository.findById(id).orElseThrow(
-                () -> new IllegalStateException("TodoList with id " + id + "does not exist")
+    public TodoList getTodoList(UUID listId) {
+        return todoListRepository.findById(listId).orElseThrow(
+                () -> new IllegalStateException("TodoList with listId " + listId + "does not exist")
         );
     }
 
@@ -26,15 +26,15 @@ public record TodoListService(
         return todoListRepository.findAll();
     }
 
-    public TodoList updateTodoList(UUID id, TodoList todoList) {
-        TodoList existingTodoList = todoListRepository.findById(id).orElseThrow(
-                () -> new IllegalStateException("TodoList with id " + id + "does not exist")
+    public TodoList updateTodoList(UUID listId, TodoList todoList) {
+        TodoList existingTodoList = todoListRepository.findById(listId).orElseThrow(
+                () -> new IllegalStateException("TodoList with listId " + listId + "does not exist")
         );
         existingTodoList.setTitle(todoList.getTitle());
         return todoListRepository.save(existingTodoList);
     }
 
-    public void deleteTodoList(UUID id) {
-        todoListRepository.deleteById(id);
+    public void deleteTodoList(UUID listId) {
+        todoListRepository.deleteById(listId);
     }
 }

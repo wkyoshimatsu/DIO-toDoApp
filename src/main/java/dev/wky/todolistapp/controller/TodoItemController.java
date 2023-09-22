@@ -21,12 +21,17 @@ public record TodoItemController(
         return todoItemService.getTodoItem(id);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("/{id}")
     public TodoItem updateTodoItem(@PathVariable("id") UUID id, @RequestBody TodoItem todoItem) {
         return todoItemService.updateTodoItem(id, todoItem);
     }
 
-    @DeleteMapping("delete/{id}")
+    @PatchMapping("/{id}/completed")
+    public TodoItem markTodoItemAsComplete(@PathVariable("id") UUID id) {
+        return todoItemService.markTodoItemAsCompleted(id);
+    }
+
+    @DeleteMapping("/{id}")
     public void deleteTodoItem(@PathVariable("id") UUID id) {
         todoItemService.deleteTodoItem(id);
     }

@@ -16,9 +16,9 @@ import java.util.UUID;
 public class TodoList {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private UUID listId;
     private String title;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "list_id")
+    @JoinColumn(name = "listId")
     private List<TodoItem> items = new ArrayList<>();
 }
